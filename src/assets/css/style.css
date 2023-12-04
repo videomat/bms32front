@@ -1,0 +1,12 @@
+.background-image {
+    background-image: url('~@/assets/loginBridgePic.jpg');
+    background-size: cover; /* Cover the entire area */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    height: 100vh; /* Example height - 100% of the viewport height */
+    width: 100%; /* Example width - 100% of the container */
+}
+
+
+.row-position {
+    margin-top: 600px;
+}
