@@ -1,9 +1,5 @@
 <template>
-
-
-  <div class="container text-center">
-
-
+  <div class="container text-center background-image">
 
       <div class="row justify-content-center row-position">
 
