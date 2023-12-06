@@ -1,6 +1,6 @@
 <template>
   <div class="Googlemap">
-    <GMapMap :center="center" :zoom="8" map-type-id="terrain" style="width: 50vw; height: 800px">
+    <GMapMap :center="center" :zoom="7.7" map-type-id="terrain" style="width: 50vw; height: 700px">
     </GMapMap>
     </div>
 </template>
@@ -10,7 +10,7 @@ export default {
   name: 'App',
   data() {
     return {
-      center: { lat: 58.7746168, lng: 25.344824 },
+      center: { lat: 58.5746168, lng: 25.044824 },
     }
   },
 }
