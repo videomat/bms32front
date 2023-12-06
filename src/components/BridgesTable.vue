@@ -14,11 +14,9 @@
       </tr>
       </thead>
       <tbody class="table-group-divider">
-      <tr>
+      <tr v-for="bridge in allBridges">
         <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>{{bridge.bridgeNumber}}</td>
       </tr>
       <tr>
         <th scope="row">2</th>
@@ -28,7 +26,7 @@
       </tr>
       <tr>
         <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
+        <td>Larry the Bird</td>
         <td>@twitter</td>
       </tr>
       </tbody>
@@ -44,10 +42,33 @@ export default {
 
   data() {
     return {
-      bridgeId: "0"
+      allBridges: {
+        bridgeId: 0,
+        bridgeNumber: 0,
+        bridgeName: '',
+        bridgeLength: 0,
+        bridgeWidth: 0,
+        bridgeType: '',
+        conditionIndex: 0,
+        locationCounty: '',
+        bridgeMaterial: ''
+      }
     }
 
   },
+
+  methods: {
+    getAllBridges() {
+      this.$http.get('/bridges/all').then(response => {
+        this.allBridges = response.data
+      })
+    }
+  },
+  mounted() {
+    this.getAllBridges()
+  }
+
+
 }
 </script>
 

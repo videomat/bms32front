@@ -11,10 +11,9 @@ const routes = [
     component: LoginView
   },
   {
-    path: '/allbridges',
+    path: '/bridges/all',
     name: 'allbridgesRoute',
     component: AllBridgesView
-
   },
   {
     path: '/home',
