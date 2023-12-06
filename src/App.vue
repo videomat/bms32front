@@ -10,7 +10,7 @@
         <nav>
           <router-link to="/login">Login</router-link>|
           <router-link to="/home">Home</router-link>|
-          <router-link to="/bridges/all">Kõik sillad</router-link>
+          <router-link to="/allbridges">Kõik sillad</router-link>
         </nav>
       </div>
       <div class="col offset-md-1 align-content-end">
