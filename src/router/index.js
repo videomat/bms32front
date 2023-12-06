@@ -1,11 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AllBridgesView from '../views/AllBridgesView.vue'
 import LoginView from "@/views/LoginView.vue";
-import HomeView from "@/views/HomeView.vue";
+import HomeView from '../views/HomeView.vue'
 
 const routes = [
 
   {
+    path: '/',
+    name: 'home',
+    component: HomeView
+  },{
     path: '/login',
     name: 'loginRoute',
     component: LoginView
@@ -14,12 +18,6 @@ const routes = [
     path: '/bridges/all',
     name: 'allbridgesRoute',
     component: AllBridgesView
-  },
-  {
-    path: '/home',
-    name: 'homeRoute',
-    component: HomeView
-
   }
 ]
 
