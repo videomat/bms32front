@@ -9,25 +9,22 @@
         <th scope="col">Pikkus [m]</th>
         <th scope="col">Laius [m]</th>
         <th scope="col">Seisundiindeks</th>
-        <th scope="col">Maakond</th>
         <th scope="col">Materjal</th>
+        <th scope="col">Tüüp</th>
+        <th scope="col">Maakond</th>
       </tr>
       </thead>
       <tbody class="table-group-divider">
-      <tr v-for="bridge in allBridges">
-        <th scope="row">1</th>
+      <tr v-for="(bridge, index) in allBridges" :key="index"> <!--      pole kindel milleks key index peab olema-->
+        <th scope="row">{{index + 1}}</th>
         <td>{{bridge.bridgeNumber}}</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry the Bird</td>
-        <td>@twitter</td>
+        <td>{{bridge.bridgeName}}</td>
+        <td>{{bridge.bridgeLength}}</td>
+        <td>{{bridge.bridgeWidth}}</td>
+        <td>{{bridge.conditionIndex}}</td>
+        <td>{{bridge.bridgeMaterial}}</td>
+        <td>{{bridge.bridgeType}}</td>
+        <td>{{bridge.locationCounty}}</td>
       </tr>
       </tbody>
     </table>
