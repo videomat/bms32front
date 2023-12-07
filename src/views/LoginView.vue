@@ -1,5 +1,5 @@
 <template>
-  <div class="container text-center background-image">
+  <div class="container text-center background-image" @keydown.enter="login">
     <div class="row justify-content-center row-position">
       <ErrorAlert :error-message="errorMessage"/>
       <div class="col col-2">
