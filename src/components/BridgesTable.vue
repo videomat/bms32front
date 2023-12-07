@@ -33,10 +33,8 @@
 
 
 <script>
-
 export default {
-  name: 'BridgesTable',
-
+  name: 'BridgesTableInfo',
   data() {
     return {
       allBridges: {
@@ -51,7 +49,6 @@ export default {
         bridgeMaterial: ''
       }
     }
-
   },
 
   methods: {
