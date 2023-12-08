@@ -53,7 +53,7 @@ export default {
 
   methods: {
     getAllBridges() {
-      this.$http.get('/bridges/all').then(response => {
+      this.$http.get('/bridges/location/all').then(response => {
         this.allBridges = response.data
       })
     }
