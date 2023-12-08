@@ -27,16 +27,6 @@
               <div class="container text-center">
                 <div class="row">
                   {{ m.position.bridgeName }}
-                  {{ m.position.bridgeType }}
-                </div>
-                <div class="row">
-                  Silla pikkus: {{ m.position.bridgeLength }} meetrit
-                </div>
-                <div class="row">
-                  Silla laius: {{ m.position.bridgeWidth }} meetrit
-                  <div/>
-                  <div class="row">
-                  </div>
                   <button class="btn btn-outline-primary" type="submit">Rohkem infot</button>
                 </div>
               </div>
@@ -50,40 +40,28 @@
 
 <script>
 export default {
-
+  name: 'AllBridgeLocations',
   data() {
     return {
       openedMarkerID: null,
       center: {lat: 58.5746168, lng: 25.044824},
-
-
       markers: [
         {
           id: 1,
           position: {
-            lat: 57.729548,
-            lng: 26.917039,
-            bridgeName: "Ala-rõuge",
-            bridgeLength: '11.8',
-            bridgeWidth: '11',
-            bridgeType: 'Sild'
-
-          },
-        },
-        {
-          id: 2,
-          position: {
-            lat: 58.731887,
-            lng: 23.992332,
-            bridgeName: "Kaskari",
-            bridgeLength: '307.8',
-            bridgeWidth: '7',
-            bridgeType: 'Sild'
-
+            lat:0,
+            lng:0,
+            bridgeName: "",
           },
         },
       ],
-    };
+      allBridgeLocations: {
+        bridgeId: 0,
+        bridgeName: "string",
+        locationLatitude: 0,
+        locationLongitude: 0
+      }
+    }
   },
 
   methods: {
@@ -93,12 +71,28 @@ export default {
         this.center = {lat: 58.5746168, lng: 25.044824}
       }
     },
+
+    getAllBridges() {
+      this.$http.get('/bridges/location/all').then(response => {
+        this.allBridgeLocations = response.data;
+        this.processBridgeData();
+      })
+    },
+
+    processBridgeData() {
+      this.markers = this.allBridgeLocations.map(bridge => ({
+        id: bridge.bridgeId,
+        position: {
+          lat: bridge.locationLatitude,
+          lng: bridge.locationLongitude,
+          bridgeName: bridge.bridgeName,
+        }
+      }));
+    }
+  },
+  mounted() {
+    this.getAllBridges();
   },
 }
 
 </script>
-
-<style>
-body {
-}
-</style>
