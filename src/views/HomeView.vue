@@ -46,7 +46,6 @@
               <div class="btn-group">
                 <button aria-expanded="false" class="btn btn-secondary dropdown-toggle" data-bs-auto-close="true"
                         data-bs-toggle="dropdown" type="button">
-                  Silla materjal
                 </button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Üki </a></li>
