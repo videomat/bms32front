@@ -13,7 +13,7 @@
 
 <script>
 
-console.log("Olen siin AtmsView.vue")
+console.log("Olen siin AllBridgesView.vue")
 import BridgesTable from "@/components/BridgesTable.vue";
 
 export default {
