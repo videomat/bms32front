@@ -29,17 +29,7 @@
               <BridgeTypeDropdown/>
             </div>
             <div class="col mb-1">
-              <div class="btn-group">
-                <button aria-expanded="false" class="btn btn-secondary dropdown-toggle" data-bs-auto-close="true"
-                        data-bs-toggle="dropdown" type="button">
-                  Maakond
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Üki </a></li>
-                  <li><a class="dropdown-item" href="#">Kaki</a></li>
-                  <li><a class="dropdown-item" href="#">Kommi</a></li>
-                </ul>
-              </div>
+              <CountyDropdown/>
             </div>
             <div class="col mb-1">
               <div class="btn-group">
@@ -112,11 +102,13 @@
 
 <script>
 import Googlemap from "@/components/Googlemap.vue";
-import BridgeTypeDropdown from "@/components/BridgeTypeDropdown.vue";
+import BridgeTypeDropdown from "@/components/dropdown/BridgeTypeDropdown.vue";
+import CountyDropdown from "@/components/dropdown/CountyDropdown.vue";
 
 export default {
   name: 'HomeView',
   components: {
+    CountyDropdown,
     BridgeTypeDropdown,
     Googlemap
   },
