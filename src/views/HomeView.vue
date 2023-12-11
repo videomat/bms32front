@@ -39,32 +39,14 @@
             <div class="row mb-1">
               <BridgeLengthSearch/>
             </div>
-            <div class="col mb-1">
-              <div class="btn-group">
-                <button aria-expanded="false" class="btn btn-secondary dropdown-toggle" data-bs-auto-close="true"
-                        data-bs-toggle="dropdown" type="button">
-                  Silla laius
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Üki </a></li>
-                  <li><a class="dropdown-item" href="#">Kaki</a></li>
-                  <li><a class="dropdown-item" href="#">Kommi</a></li>
-                </ul>
-              </div>
+            <div class="row mb-1">
+              <BridgeWidthSearch/>
             </div>
-            <div class="col mb-3">
-              <div class="btn-group">
-                <button aria-expanded="false" class="btn btn-secondary dropdown-toggle" data-bs-auto-close="true"
-                        data-bs-toggle="dropdown" type="button">
-                  Seisukord
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Üki </a></li>
-                  <li><a class="dropdown-item" href="#">Kaki</a></li>
-                  <li><a class="dropdown-item" href="#">Kommi</a></li>
-                </ul>
-              </div>
-              <button class="btn btn-outline-secondary" type="button">Reset filter</button>
+            <div class="row mb-3">
+              <ConditionIndexSearch/>
+            </div>
+            <div class="row" >
+              <button class="btn btn-outline-secondary" type="button">Otsi</button>
             </div>
             <div class="col">
               <div class="form-check form-switch">
@@ -87,11 +69,15 @@ import Googlemap from "@/components/Googlemap.vue";
 import BridgeTypeDropdown from "@/components/dropdown/BridgeTypeDropdown.vue";
 import CountyDropdown from "@/components/dropdown/CountyDropdown.vue";
 import BridgeMaterialDropdown from "@/components/dropdown/BridgeMaterialDropdown.vue";
-import BridgeLengthSearch from "@/components/BridgeLengthSearch.vue";
+import BridgeLengthSearch from "@/components/searchbox/BridgeLengthSearch.vue";
+import BridgeWidthSearch from "@/components/searchbox/BridgeWidthSearch.vue";
+import ConditionIndexSearch from "@/components/searchbox/ConditionIndexSearch.vue";
 
 export default {
   name: 'HomeView',
   components: {
+    ConditionIndexSearch,
+    BridgeWidthSearch,
     BridgeLengthSearch,
     BridgeMaterialDropdown,
     CountyDropdown,
