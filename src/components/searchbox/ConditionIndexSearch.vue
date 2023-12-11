@@ -11,7 +11,6 @@
   </div>
   <div class="col-5">
     <input aria-describedby="basic-addon1" aria-label="BridgeName" class="form-control"
-           max="{{maxConditionIndexValue}}"
            placeholder="Kuni"
            type="number">
   </div>
@@ -23,12 +22,8 @@ export default {
 
   data() {
     return {
-      setConditionIndex: 0,
-      conditionIndexes: [
-        {
-          conditionIndex: 0,
-        }
-      ]
+      setConditionIndexStart:0,
+
     }
   },
 
