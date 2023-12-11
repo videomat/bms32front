@@ -13,7 +13,6 @@
 
 <script>
 
-console.log("Olen siin AtmsView.vue")
 import BridgesTable from "@/components/BridgesTable.vue";
 
 export default {
