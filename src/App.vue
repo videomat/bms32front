@@ -2,10 +2,13 @@
   <LogOutModal ref="logOutModalRef" @event-execute-logout="executeLogOut"/>
   <nav>
     <template v-if="isLoggedIn">
-      <router-link to="/home">Kodu</router-link>|
-      <router-link to="/allbridges">Kõik sillad</router-link>|
+      <router-link to="/home">Kodu</router-link>
+      |
+      <router-link to="/allbridges">Kõik sillad</router-link>
+      |
       <template v-if="isAdmin">
-        <router-link to="/changebridges">Muuda sillad</router-link>|
+        <router-link to="/changebridges">Muuda sillad</router-link>
+        |
       </template>
       <a ref="#" class="link-underline-opacity-100-hover cursor-pointer" @click="handleLogOut">Logi välja</a>
     </template>
@@ -32,11 +35,8 @@ export default {
     updateNavMenu() {
       const userId = sessionStorage.getItem('userId');
       this.isLoggedIn = userId !== null;
-      console.log("isLoggedIn updated to:", this.isLoggedIn); // Debugging log
-
       const roleName = sessionStorage.getItem('roleName');
       this.isAdmin = roleName === 'admin';
-      console.log("isAdmin updated to:", this.isAdmin); // Debugging log
     },
 
     handleLogOut() {
@@ -46,7 +46,7 @@ export default {
     executeLogOut() {
       sessionStorage.clear();
       this.updateNavMenu();
-      router.push({ name: 'loginRoute' });
+      router.push({name: 'loginRoute'});
     }
   },
   watch: {

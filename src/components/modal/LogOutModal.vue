@@ -14,10 +14,9 @@ import Modal from "@/components/modal/Modal.vue";
 
 export default {
   name: 'LogOutModal',
-  components: { Modal },
+  components: {Modal},
   methods: {
     executeLogout() {
-      // Emit the logout event and close the modal
       this.$emit('event-execute-logout')
       this.$refs.modalRef.closeModal()
     },

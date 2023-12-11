@@ -3,12 +3,12 @@
     <div class="modal-dialog" @click.stop>
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <h1 id="exampleModalLabel" class="modal-title fs-5">
             <slot name="header">
               Default title
             </slot>
           </h1>
-          <button type="button" class="btn-close" aria-label="Close" @click="closeModal"></button>
+          <button aria-label="Close" class="btn-close" type="button" @click="closeModal"></button>
         </div>
         <div class="modal-body">
           <slot name="body">
@@ -18,8 +18,8 @@
         <div class="modal-footer">
           <slot name="footer">
           </slot>
-          <button type="button" class="btn btn-primary" @click="confirmAction">{{ confirmButtonName }}</button>
-          <button type="button" class="btn btn-secondary" @click="closeModal">{{ closeButtonName }}</button>
+          <button class="btn btn-primary" type="button" @click="confirmAction">{{ confirmButtonName }}</button>
+          <button class="btn btn-secondary" type="button" @click="closeModal">{{ closeButtonName }}</button>
         </div>
       </div>
     </div>
