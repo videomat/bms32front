@@ -1,7 +1,8 @@
 <template>
   <LogOutModal ref="logOutModalRef" @event-execute-logout="executeLogOut"/>
   <nav>
-    <template v-if="isLoggedIn">
+  <template v-if="isLoggedIn">
+    <div class="nav-links">
       <router-link to="/home">Kodu</router-link>
       |
       <router-link to="/allbridges">Kõik sillad</router-link>
@@ -10,10 +11,13 @@
         <router-link to="/changebridges">Muuda sillad</router-link>
         |
       </template>
+    </div>
+    <div class="nav-logout">
       <a ref="#" class="link-underline-opacity-100-hover cursor-pointer" @click="handleLogOut">Logi välja</a>
-    </template>
-    <router-link v-if="!isLoggedIn" to="/"></router-link>
-  </nav>
+    </div>
+  </template>
+  <router-link v-if="!isLoggedIn" to="/"></router-link>
+</nav>
   <router-view @event-update-nav-menu="updateNavMenu"/>
 </template>
 
@@ -67,6 +71,23 @@ export default {
 </script>
 
 <style>
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.nav-logout {
+  display: flex;
+  justify-content: flex-end;
+}
 nav {
   padding: 30px;
 }
