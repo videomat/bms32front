@@ -1,15 +1,12 @@
 <template>
   <div>
     <div class="btn-group">
-      <button aria-expanded="false" class="btn btn-secondary dropdown-toggle" data-bs-auto-close="true"
-              data-bs-toggle="dropdown" type="button">
-        Silla materjal
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" v-for="bridgeType in bridgeTypes" :key="bridgeType.bridgeTypeId"
-               :value="bridgeType.bridgeTypeId">{{ bridgeType.bridgeType }}</a></li>
-      </ul>
-
+      <select v-model="selectedBridgeTypeId">
+        <option value="0">Kõik sillatüübid</option>
+        <option v-for="bridgeType in bridgeTypes" :key="bridgeType.bridgeTypeId" :value="bridgeType.bridgeTypeId">
+          {{ bridgeType.bridgeType }}
+        </option>
+      </select>
     </div>
   </div>
 </template>
@@ -19,6 +16,7 @@ export default {
   name: 'BridgeTypeDropdown',
   data() {
     return {
+      selectedBridgeTypeId: 0,
       bridgeTypes: [
         {
           bridgeTypeId: 0,
@@ -35,7 +33,6 @@ export default {
           })
     },
   },
-
 
   mounted() {
     this.getBridgeTypes()
