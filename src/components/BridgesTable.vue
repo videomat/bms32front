@@ -46,7 +46,7 @@ export default {
         bridgeType: '',
         conditionIndex: 0,
         locationCounty: '',
-        bridgeMaterial: ''
+        bridgeMaterials: ''
       }
     }
   },
