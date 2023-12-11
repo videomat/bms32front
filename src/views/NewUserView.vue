@@ -1,6 +1,9 @@
 <template>
-  <div class="container text-center background-image" @keydown.enter="addUser">
-    <div class="row justify-content-center row-position">
+  <div class="text-primary"><h1>LOO UUS KONTO!</h1></div>
+
+
+  <div class="container text-center new-user-background-image" @keydown.enter="addUser">
+    <div class="row justify-content-center new-user-row-position">
       <ErrorAlert :error-message="errorMessage"/>
       <div class="col col-2">
         <div class="col mb-2">
