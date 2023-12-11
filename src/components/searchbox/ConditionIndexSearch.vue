@@ -4,13 +4,13 @@
     <span id="basic-addon1" class="input-group-text">🔍</span>
   </div>
   <div class="col-5">
-    <input aria-describedby="basic-addon1" aria-label="BridgeName" class="form-control"
+    <input v-model="conditionIndexStart" aria-describedby="basic-addon1" aria-label="BridgeName" class="form-control"
            min="0"
            placeholder="Alates"
            type="number">
   </div>
   <div class="col-5">
-    <input aria-describedby="basic-addon1" aria-label="BridgeName" class="form-control"
+    <input v-model="conditionIndexEnd" aria-describedby="basic-addon1" aria-label="BridgeName" class="form-control"
            placeholder="Kuni"
            type="number">
   </div>
@@ -22,8 +22,8 @@ export default {
 
   data() {
     return {
-      setConditionIndexStart:0,
-
+      conditionIndexStart: 0,
+      conditionIndexEnd: 0,
     }
   },
 
@@ -33,9 +33,6 @@ export default {
         this.setConditionIndex = 100
       }
     },
-  },
-  tempMethod() {
-    alert(this.setConditionIndex)
   },
 
 }

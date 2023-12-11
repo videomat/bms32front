@@ -2,40 +2,37 @@
   <div class="container text-center">
     <div class="row">
       <div class="col mb-1">
-        <BridgeNameSearch ref="bridgeNameSearchRef"/>
-        <nav class="navbar bg-body-tertiary">
-          <form class="container-fluid">
-            <div class="input-group">
-              <span id="basic-addon1" class="input-group-text">🔍</span>
-              <input aria-describedby="basic-addon1" aria-label="BridgeNr" class="form-control"
-                     placeholder="Silla number"
-                     type="text">
-            </div>
-          </form>
-        </nav>
+        <div>
+          <BridgeNameSearch ref="bridgeNameSearchRef"/>
+        </div>
+        <div class="navbar bg-body-tertiary">
+          <div>
+            <BridgeNumberSearch ref="bridgeNumberSearchRef"/>
+          </div>
+        </div>
         <div class="container text-start">
           <div class="col mb-3">
             <h3>Filter</h3>
             <div class="row mb-1">
-              <BridgeTypeDropdown/>
+              <BridgeTypeDropdown ref="bridgeTypeDropdownRef"/>
             </div>
             <div class="row mb-1">
-              <CountyDropdown/>
+              <CountyDropdown ref="countyDropdownRef"/>
             </div>
             <div class="row mb-1">
-              <BridgeMaterialDropdown/>
+              <BridgeMaterialDropdown ref="bridgeMaterialDropdownRef"/>
             </div>
             <div class="row mb-1">
-              <BridgeLengthSearch/>
+              <BridgeLengthSearch ref="bridgeLengthSearchRef"/>
             </div>
             <div class="row mb-1">
-              <BridgeWidthSearch/>
+              <BridgeWidthSearch ref="bridgeWidthSearchRef"/>
             </div>
             <div class="row mb-3">
-              <ConditionIndexSearch/>
+              <ConditionIndexSearch ref="conditionIndexSearchRef"/>
             </div>
             <div class="row">
-              <button class="btn btn-outline-secondary" type="button">Otsi</button>
+              <button @click="sendBridgeSearchRequest" class="btn btn-outline-secondary" type="button">Otsi</button>
             </div>
             <div class="col">
               <div class="form-check form-switch">
@@ -62,10 +59,12 @@ import BridgeLengthSearch from "@/components/searchbox/BridgeLengthSearch.vue";
 import BridgeWidthSearch from "@/components/searchbox/BridgeWidthSearch.vue";
 import ConditionIndexSearch from "@/components/searchbox/ConditionIndexSearch.vue";
 import BridgeNameSearch from "@/components/searchbox/BridgeNameSearch.vue";
+import BridgeNumberSearch from "@/components/searchbox/BridgeNumberSearch.vue";
 
 export default {
   name: 'HomeView',
   components: {
+    BridgeNumberSearch,
     BridgeNameSearch,
     ConditionIndexSearch,
     BridgeWidthSearch,
@@ -76,7 +75,7 @@ export default {
     Googlemap
   },
   data() {
-    return{
+    return {
       bridgeSearchRequest: {
         bridgeName: '',
         bridgeNumber: 0,
@@ -92,19 +91,26 @@ export default {
       }
     }
   },
-  methods:{
+  methods: {
 
 
     sendBridgeSearchRequest: function () {
       this.bridgeSearchRequest.bridgeName = this.$refs.bridgeNameSearchRef.bridgeName
-
-
-
+      this.bridgeSearchRequest.bridgeNumber = this.$refs.bridgeNumberSearchRef.bridgeNumber
+      this.bridgeSearchRequest.bridgeTypeId = this.$refs.bridgeTypeDropdownRef.selectedBridgeTypeId
+      this.bridgeSearchRequest.countyId = this.$refs.countyDropdownRef.selectedCountyId
+      this.bridgeSearchRequest.materialTypeId = this.$refs.bridgeMaterialDropdownRef.selectedBridgeMaterialId
+      this.bridgeSearchRequest.bridgeLengthStart = this.$refs.bridgeLengthSearchRef.bridgeLengthStart
+      this.bridgeSearchRequest.bridgeLengthEnd = this.$refs.bridgeLengthSearchRef.bridgeLengthEnd
+      this.bridgeSearchRequest.bridgeWidthStart = this.$refs.bridgeWidthSearchRef.bridgeWidthStart
+      this.bridgeSearchRequest.bridgeWidthEnd = this.$refs.bridgeWidthSearchRef.bridgeWidthEnd
+      this.bridgeSearchRequest.conditionIndexStart = this.$refs.conditionIndexSearchRef.conditionIndexStart
+      this.bridgeSearchRequest.conditionIndexEnd = this.$refs.conditionIndexSearchRef.conditionIndexEnd
       this.postBridgeSearchRequest();
     },
 
     postBridgeSearchRequest: function () {
-      this.$http.post("/some/path", this.bridgeSearchRequest
+      this.$http.post("/bridges/location/by-criteria", this.bridgeSearchRequest
       ).then(response => {
         const responseBody = response.data
       }).catch(error => {
