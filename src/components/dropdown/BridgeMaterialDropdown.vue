@@ -2,7 +2,7 @@
 
   <div>
     <div class="btn-group">
-      <select>
+      <select v-model="selectedBridgeMaterialId">
         <option value="0">Kõik materjalid</option>
         <option v-for="bridgeMaterial in bridgeMaterials" :value="bridgeMaterial.materialId">{{bridgeMaterial.materialName}}</option>
       </select>
@@ -17,6 +17,7 @@ export default {
 
   data() {
     return {
+      selectedBridgeMaterialId: 0,
       bridgeMaterials: [
         {
           materialId: 0,
