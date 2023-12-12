@@ -1,20 +1,24 @@
 <template>
-  <div class="container text-center background-image" @keydown.enter="login">
-    <div class="row justify-content-center row-position">
+  <div class="text-primary"><h4>LOO UUS KONTO!</h4></div>
+  <div class="container text-center new-user-background-image" @keydown.enter="addUser">
+    <div class="row justify-content-center new-user-row-position">
       <ErrorAlert :error-message="errorMessage"/>
       <div class="col col-2">
         <div class="col mb-2">
-          <input v-model="username" class="form-control" placeholder="Kasutaja" type="text">
+          <input v-model="username" class="form-control" placeholder="Kasutajanimi" type="text">
         </div>
 
         <div class="col mb-2">
           <input v-model="password" class="form-control" placeholder="Parool" type="text">
         </div>
-        <button class="btn btn-outline-primary" type="submit" @click="login">Logi sisse</button>
-
+        <div>
+        <button class="btn btn-outline-primary" type="submit" @click="addUser" >Lisa kasutaja </button>
+        <button class="btn btn-outline-primary" type="submit" @click="goLogin">Tagasi</button>
+        </div>
       </div>
     </div>
   </div>
+
 
 </template>
 
@@ -24,7 +28,7 @@ import router from "@/router";
 import ErrorAlert from "@/components/alert/ErrorAlert.vue";
 
 export default {
-  name: "Loginview",
+  name: "NewUserView",
   components: {ErrorAlert},
   data() {
     return {
@@ -43,39 +47,39 @@ export default {
   },
   methods: {
 
-    login() {
+    addUser() {
       if (this.allRequiredFieldsAreFilled()) {
-        this.sendLoginRequest();
+        this.addUserRequest();
       } else {
         this.handleRequiredFieldsAlert();
       }
     },
-    adduser() {
-      router.push({name: 'newUserRoute'})
+    goLogin() {
+        router.push({name: 'loginRoute'})
     },
     allRequiredFieldsAreFilled() {
       return this.username.length > 0 && this.password.length > 0
     },
 
-    sendLoginRequest() {
-      this.$http.get("/login", {
+    addUserRequest() {
+      this.$http.get("/adduser", {
         params: {
           username: this.username,
           password: this.password
         },
       }).then(response => {
         this.loginResponse = response.data
-        this.handleSuccessfulLogin();
+        this.handleSuccessfulAdd();
       }).catch(error => {
-        this.handleUnsuccessfulLogin(error);
+        this.handleUnsuccessfulAdd(error);
       })
     },
-    handleSuccessfulLogin() {
-      sessionStorage.setItem('userId', this.loginResponse.userId)
-      sessionStorage.setItem('roleName', this.loginResponse.roleName)
-      router.push({name: 'home'})
+    handleSuccessfulAdd() {
+      //sessionStorage.setItem('userId', this.loginResponse.userId)
+      //sessionStorage.setItem('roleName', this.loginResponse.roleName)
+      router.push({name: 'loginRoute'})
     },
-    handleUnsuccessfulLogin(error) {
+    handleUnsuccessfulAdd(error) {
       this.errorResponse = error.response.data
       const httpStatusCode = error.response.status
       if (httpStatusCode === 403 && this.errorResponse.errorCode === 111) {
