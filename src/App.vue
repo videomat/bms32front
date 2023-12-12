@@ -2,8 +2,7 @@
   <LogOutModal ref="logOutModalRef" @event-execute-logout="executeLogOut"/>
   <nav>
     <template v-if="!isLoggedIn">
-      <router-link to="/addUser">Uus kasutaja</router-link>|
-      </template>
+    </template>
     <template v-if="isLoggedIn">
       <div class="nav-links">
         <router-link to="/home">Kodu</router-link>

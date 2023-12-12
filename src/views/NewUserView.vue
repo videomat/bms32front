@@ -1,5 +1,5 @@
 <template>
-  <div class="text-primary"><h4>LOO UUS KONTO!</h4></div>
+  <div class="text-center text-primary"><h4>LOO UUS KONTO!</h4></div>
   <div class="container text-center new-user-background-image" @keydown.enter="addUser">
     <div class="row justify-content-center new-user-row-position">
       <ErrorAlert :error-message="errorMessage"/>

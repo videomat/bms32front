@@ -1,5 +1,11 @@
 <template>
   <div class="container text-center background-image" @keydown.enter="login">
+    <div class="row ">
+      <div class="col-sm-9"></div>
+      <div class="col-sm-3">
+        <button class="btn btn-outline-primary" type="submit" @click="adduser">Lisa kasutaja</button>
+      </div>
+    </div>
     <div class="row justify-content-center row-position">
       <ErrorAlert :error-message="errorMessage"/>
       <div class="col col-2">
