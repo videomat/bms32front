@@ -4,6 +4,7 @@ import LoginView from "@/views/LoginView.vue"
 import NewUserView from "@/views/NewUserView.vue"
 import HomeView from '../views/HomeView.vue'
 import ErrorView from "@/views/ErrorView.vue"
+import BridgeDetails from "@/views/BridgeDetailsView.vue";
 
 const routes = [
 
@@ -30,6 +31,11 @@ const routes = [
         path: '/error',
         name: 'errorRoute',
         component: ErrorView
+    },
+    {
+        path: '/details',
+        name: 'bridgeDetailsRoute',
+        component: BridgeDetails
     }
 ]
 
