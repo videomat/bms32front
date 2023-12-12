@@ -8,7 +8,7 @@
         </div>
 
         <div class="col mb-2">
-          <input v-model="password" class="form-control" placeholder="Parool" type="text">
+          <input v-model="password" class="form-control" placeholder="Parool" type="password">
         </div>
         <button class="btn btn-outline-primary" type="submit" @click="login">Logi sisse</button>
 
