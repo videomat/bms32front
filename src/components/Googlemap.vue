@@ -68,8 +68,6 @@ export default {
           }
         }
       ]
-
-
     }
   },
 
@@ -84,15 +82,12 @@ export default {
     getAllBridges() {
       this.$http.get('/bridges/location/all').then(response => {
         this.bridges = response.data;
-        // this.processBridgeData();
       })
     },
 
     navigateToBridgeDetailsView(bridgeId) {
-      router.push({name: 'bridgeDetailsRoute', query: {bridgeId:bridgeId}})
+      router.push({name: 'bridgeDetailsRoute', query: {bridgeId: bridgeId}})
     }
-
-
   },
   mounted() {
     this.getAllBridges();
