@@ -35,7 +35,7 @@
               <button @click="sendBridgeSearchRequest" class="btn btn-outline-secondary" type="button">Otsi</button>
             </div>
             <div class="row mb-3">
-              <button @click="resetFilter" class="btn btn-outline-secondary" type="button">Reset filter</button>
+              <button @click="handleResetFilter" class="btn btn-outline-secondary" type="button">Reset filter</button>
             </div>
             <div class="row mb-3">
               <div class="form-check form-switch">
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="col-9">
-        <Googlemap/>
+        <Googlemap :bridge-search-request="bridgeSearchRequest" ref="googlemapRef"/>
       </div>
     </div>
   </div>
@@ -94,12 +94,21 @@ export default {
         conditionIndexStart: 0,
         conditionIndexEnd: 0
       },
+
     }
   },
 
   methods: {
+
+
     sendBridgeSearchRequest() {
-      if (this.searchPerformed)
+      this.getAndSetBridgeSearchRequestValues()
+      this.$refs.googlemapRef.getFilteredBridges()
+
+    },
+
+
+    getAndSetBridgeSearchRequestValues: function () {
       this.bridgeSearchRequest.bridgeName = this.$refs.bridgeNameSearchRef.bridgeName
       this.bridgeSearchRequest.bridgeNumber = this.$refs.bridgeNumberSearchRef.bridgeNumber
       this.bridgeSearchRequest.countyId = this.$refs.countyDropdownRef.selectedCountyId
@@ -111,42 +120,37 @@ export default {
       this.bridgeSearchRequest.bridgeWidthEnd = this.$refs.bridgeWidthSearchRef.bridgeWidthEnd
       this.bridgeSearchRequest.conditionIndexStart = this.$refs.conditionIndexSearchRef.conditionIndexStart
       this.bridgeSearchRequest.conditionIndexEnd = this.$refs.conditionIndexSearchRef.conditionIndexEnd
-      this.postBridgeSearchRequest()
-      this.searchPerformed = true;
-    },
-
-    postBridgeSearchRequest: function () {
-      this.$http.post("/bridges/location/by-criteria", this.bridgeSearchRequest
-      ).then(response => {
-        const responseBody = response.data
-      }).catch(error => {
-        const errorResponseBody = error.response.data
-      })
     },
 
     temporaryResetFilter() {
       if (!this.searchPerformed) {
-        this.resetFilter();
+        this.handleResetFilter();
       } else {
         this.sendBridgeSearchRequest();
       }
     },
 
-    resetFilter () {
-      this.$refs.bridgeNameSearchRef.bridgeName = '',
-      this.$refs.bridgeNumberSearchRef.bridgeNumber = 0,
-      this.$refs.countyDropdownRef.selectedCountyId = 0,
-      this.$refs.bridgeTypeDropdownRef.selectedBridgeTypeId = 0,
-      this.$refs.bridgeMaterialDropdownRef.selectedBridgeMaterialId = 0,
-      this.$refs.bridgeLengthSearchRef.bridgeLengthStart = 0,
-      this.$refs.bridgeLengthSearchRef.bridgeLengthEnd = 0,
-      this.$refs.bridgeWidthSearchRef.bridgeWidthStart = 0,
-      this.$refs.bridgeWidthSearchRef.bridgeWidthEnd = 0,
-      this.$refs.conditionIndexSearchRef.conditionIndexStart = 0,
-      this.$refs.conditionIndexSearchRef.conditionIndexEnd = 0,
-      this.searchPerformed = false
+
+
+    handleResetFilter () {
+      this.resetAllFields();
+      this.$refs.googlemapRef.getAllBridges()
     },
 
+    resetAllFields: function () {
+      this.$refs.bridgeNameSearchRef.bridgeName = '',
+          this.$refs.bridgeNumberSearchRef.bridgeNumber = 0,
+          this.$refs.countyDropdownRef.selectedCountyId = 0,
+          this.$refs.bridgeTypeDropdownRef.selectedBridgeTypeId = 0,
+          this.$refs.bridgeMaterialDropdownRef.selectedBridgeMaterialId = 0,
+          this.$refs.bridgeLengthSearchRef.bridgeLengthStart = 0,
+          this.$refs.bridgeLengthSearchRef.bridgeLengthEnd = 0,
+          this.$refs.bridgeWidthSearchRef.bridgeWidthStart = 0,
+          this.$refs.bridgeWidthSearchRef.bridgeWidthEnd = 0,
+          this.$refs.conditionIndexSearchRef.conditionIndexStart = 0,
+          this.$refs.conditionIndexSearchRef.conditionIndexEnd = 0,
+          this.searchPerformed = false
+    },
   }
 }
 </script>
