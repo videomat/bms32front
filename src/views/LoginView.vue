@@ -11,7 +11,6 @@
           <input v-model="password" class="form-control" placeholder="Parool" type="text">
         </div>
         <button class="btn btn-outline-primary" type="submit" @click="login">Logi sisse</button>
-        <button class="btn btn-outline-primary" type="submit" @click="adduser">Uus kasutaja</button>
 
       </div>
     </div>

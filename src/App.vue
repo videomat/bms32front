@@ -15,7 +15,8 @@
       </div>
       <div class="col offset-md-1 align-content-end">
         <nav>
-          <a href="#">Logi välja</a>
+          <router-link to="/addUser">Uus kasutaja</router-link>|
+          <a href="#">Logi välja </a>
         </nav>
       </div>
     </div>
@@ -47,3 +48,5 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+<script setup>
+</script>

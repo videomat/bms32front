@@ -1,7 +1,5 @@
 <template>
-  <div class="text-primary"><h1>LOO UUS KONTO!</h1></div>
-
-
+  <div class="text-primary"><h4>LOO UUS KONTO!</h4></div>
   <div class="container text-center new-user-background-image" @keydown.enter="addUser">
     <div class="row justify-content-center new-user-row-position">
       <ErrorAlert :error-message="errorMessage"/>
@@ -14,7 +12,7 @@
           <input v-model="password" class="form-control" placeholder="Parool" type="text">
         </div>
         <div>
-        <button class="btn btn-outline-primary" type="submit" @click="addUser">Lisa kasutaja</button>
+        <button class="btn btn-outline-primary" type="submit" @click="addUser" >Lisa kasutaja </button>
         <button class="btn btn-outline-primary" type="submit" @click="goLogin">Tagasi</button>
         </div>
       </div>
