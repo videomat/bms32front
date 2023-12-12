@@ -7,14 +7,13 @@
         <div class="col mb-2">
           <input v-model="username" class="form-control" placeholder="Kasutajanimi" type="text">
         </div>
-
         <div class="col mb-2">
           <input v-model="password" class="form-control" placeholder="Parool" type="text">
         </div>
-        <div>
+      </div>
+      <div>
         <button class="btn btn-outline-primary" type="submit" @click="addUser" >Lisa kasutaja </button>
         <button class="btn btn-outline-primary" type="submit" @click="goLogin">Tagasi</button>
-        </div>
       </div>
     </div>
   </div>
