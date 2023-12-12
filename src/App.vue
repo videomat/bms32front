@@ -2,6 +2,10 @@
   <LogOutModal ref="logOutModalRef" @event-execute-logout="executeLogOut"/>
   <nav>
     <template v-if="!isLoggedIn">
+      <div class="nav-links"></div>
+      <div class="nav-logout">
+        <a ref="#" class="link-underline-opacity-100-hover cursor-pointer" @click="addUser">Uus kasutaja</a>
+      </div>
     </template>
     <template v-if="isLoggedIn">
       <div class="nav-links">
@@ -38,6 +42,9 @@ export default {
     }
   },
   methods: {
+    addUser() {
+      router.push({name: 'newUserRoute'})
+    },
 
     updateNavMenu() {
       const userId = sessionStorage.getItem('userId');
