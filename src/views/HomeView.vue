@@ -31,13 +31,17 @@
             <div class="row mb-3">
               <ConditionIndexSearch ref="conditionIndexSearchRef"/>
             </div>
-            <div class="row">
+            <div class="row mb-3">
               <button @click="sendBridgeSearchRequest" class="btn btn-outline-secondary" type="button">Otsi</button>
             </div>
-            <div class="col">
+            <div class="row mb-3">
+              <button @click="resetFilter" class="btn btn-outline-secondary" type="button">Reset filter</button>
+            </div>
+            <div class="row mb-3">
               <div class="form-check form-switch">
-                <input id="flexSwitchCheckChecked" checked class="form-check-input" role="switch" type="checkbox">
-                <label class="form-check-label" for="flexSwitchCheckChecked">Filter ON/OFF</label>
+                <input v-model="searchPerformed" id="flexSwitchCheckChecked" checked class="form-check-input" role="switch" type="checkbox"
+                >
+                <label class="form-check-label" for="flexSwitchCheckChecked">Filter OFF/ON</label>
               </div>
             </div>
           </div>
@@ -76,6 +80,7 @@ export default {
   },
   data() {
     return {
+      searchPerformed: false,
       bridgeSearchRequest: {
         bridgeName: '',
         bridgeNumber: 0,
@@ -88,17 +93,17 @@ export default {
         bridgeWidthEnd: 0,
         conditionIndexStart: 0,
         conditionIndexEnd: 0
-      }
+      },
     }
   },
+
   methods: {
-
-
-    sendBridgeSearchRequest: function () {
+    sendBridgeSearchRequest() {
+      if (this.searchPerformed)
       this.bridgeSearchRequest.bridgeName = this.$refs.bridgeNameSearchRef.bridgeName
       this.bridgeSearchRequest.bridgeNumber = this.$refs.bridgeNumberSearchRef.bridgeNumber
-      this.bridgeSearchRequest.bridgeTypeId = this.$refs.bridgeTypeDropdownRef.selectedBridgeTypeId
       this.bridgeSearchRequest.countyId = this.$refs.countyDropdownRef.selectedCountyId
+      this.bridgeSearchRequest.bridgeTypeId = this.$refs.bridgeTypeDropdownRef.selectedBridgeTypeId
       this.bridgeSearchRequest.materialTypeId = this.$refs.bridgeMaterialDropdownRef.selectedBridgeMaterialId
       this.bridgeSearchRequest.bridgeLengthStart = this.$refs.bridgeLengthSearchRef.bridgeLengthStart
       this.bridgeSearchRequest.bridgeLengthEnd = this.$refs.bridgeLengthSearchRef.bridgeLengthEnd
@@ -106,7 +111,8 @@ export default {
       this.bridgeSearchRequest.bridgeWidthEnd = this.$refs.bridgeWidthSearchRef.bridgeWidthEnd
       this.bridgeSearchRequest.conditionIndexStart = this.$refs.conditionIndexSearchRef.conditionIndexStart
       this.bridgeSearchRequest.conditionIndexEnd = this.$refs.conditionIndexSearchRef.conditionIndexEnd
-      this.postBridgeSearchRequest();
+      this.postBridgeSearchRequest()
+      this.searchPerformed = true;
     },
 
     postBridgeSearchRequest: function () {
@@ -116,6 +122,29 @@ export default {
       }).catch(error => {
         const errorResponseBody = error.response.data
       })
+    },
+
+    temporaryResetFilter() {
+      if (!this.searchPerformed) {
+        this.resetFilter();
+      } else {
+        this.sendBridgeSearchRequest();
+      }
+    },
+
+    resetFilter () {
+      this.$refs.bridgeNameSearchRef.bridgeName = '',
+      this.$refs.bridgeNumberSearchRef.bridgeNumber = 0,
+      this.$refs.countyDropdownRef.selectedCountyId = 0,
+      this.$refs.bridgeTypeDropdownRef.selectedBridgeTypeId = 0,
+      this.$refs.bridgeMaterialDropdownRef.selectedBridgeMaterialId = 0,
+      this.$refs.bridgeLengthSearchRef.bridgeLengthStart = 0,
+      this.$refs.bridgeLengthSearchRef.bridgeLengthEnd = 0,
+      this.$refs.bridgeWidthSearchRef.bridgeWidthStart = 0,
+      this.$refs.bridgeWidthSearchRef.bridgeWidthEnd = 0,
+      this.$refs.conditionIndexSearchRef.conditionIndexStart = 0,
+      this.$refs.conditionIndexSearchRef.conditionIndexEnd = 0,
+      this.searchPerformed = false
     },
 
   }
