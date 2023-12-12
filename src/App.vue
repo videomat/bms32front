@@ -19,6 +19,7 @@
     <router-link v-if="!isLoggedIn" to="/"></router-link>
   </nav>
   <router-view @event-update-nav-menu="updateNavMenu"/>
+
 </template>
 
 <script>
@@ -87,7 +88,7 @@ nav {
 .nav-logout {
   display: flex;
   justify-content: flex-end;
-  margin-right: 300px; /* Adjust this value as needed */
+  margin-right: 30px; /* Adjust this value as needed */
 }
 
 nav {
