@@ -3,7 +3,7 @@
     <div class="row ">
       <div class="col-sm-9"></div>
       <div class="col-sm-3">
-        <button class="btn btn-outline-primary" type="submit" @click="adduser">Lisa kasutaja</button>
+        <button class="btn btn-light" type="submit" @click="adduser">Lisa kasutaja</button>
       </div>
     </div>
     <div class="row justify-content-center row-position">
