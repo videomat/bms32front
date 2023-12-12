@@ -53,7 +53,10 @@
 import router from "@/router";
 
 export default {
-  name: 'AllBridgeLocations',
+  name: 'Googlemap',
+  props:{
+    bridgeSearchRequest:{}
+  },
   data() {
     return {
       openedMarkerID: null,
@@ -84,6 +87,16 @@ export default {
         this.bridges = response.data;
       })
     },
+
+    getFilteredBridges() {
+      this.$http.post("/bridges/location/by-criteria", this.bridgeSearchRequest
+      ).then(response => {
+        this.bridges = response.data
+      }).catch(error => {
+        const errorResponseBody = error.response.data
+      })
+    },
+
 
     navigateToBridgeDetailsView(bridgeId) {
       router.push({name: 'bridgeDetailsRoute', query: {bridgeId: bridgeId}})

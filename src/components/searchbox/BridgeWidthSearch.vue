@@ -1,8 +1,5 @@
 <template>
   <span>Silla laius [m]:</span>
-  <div class="col-2">
-    <span id="basic-addon1" class="input-group-text">🔍</span>
-  </div>
   <div class="col-5">
     <input v-model="bridgeWidthStart" aria-describedby="basic-addon1" class="form-control"
            min="0"
