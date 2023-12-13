@@ -2,6 +2,7 @@
   <div class="text-center text-primary"><h4>LOO UUS KONTO!</h4></div>
   <div class="container text-center new-user-background-image" @keydown.enter="addUser">
     <div class="row justify-content-center new-user-row-position">
+      <SuccessAlert :error-message="successMessage"/>
       <ErrorAlert :error-message="errorMessage"/>
       <div class="col col-2">
         <div class="col mb-2">
@@ -12,8 +13,10 @@
         </div>
       </div>
       <div>
-        <button class="btn btn-outline-primary" type="submit" @click="addUser" >Lisa kasutaja </button>
-        <button class="btn btn-outline-primary" type="submit" @click="goLogin">Tagasi</button>
+        <button class="btn btn-outline-primary new-user-button mb-2" type="submit" @click="addUser" >Lisa kasutaja </button>
+      </div>
+      <div>
+        <button class="btn btn-outline-primary new-user-button" type="submit" @click="goLogin">Tagasi</button>
       </div>
     </div>
   </div>
@@ -25,13 +28,15 @@
 <script>
 import router from "@/router";
 import ErrorAlert from "@/components/alert/ErrorAlert.vue";
+import SuccessAlert from "@/components/alert/SuccessAlert.vue";
 
 export default {
   name: "NewUserView",
-  components: {ErrorAlert},
-  data() {
+  components: {ErrorAlert,SuccessAlert},
+   data() {
     return {
       errorMessage: '',
+      successMessage: '',
       username: '',
       password: '',
       loginResponse: {
@@ -76,7 +81,9 @@ export default {
     handleSuccessfulAdd() {
       //sessionStorage.setItem('userId', this.loginResponse.userId)
       //sessionStorage.setItem('roleName', this.loginResponse.roleName)
-      router.push({name: 'loginRoute'})
+      this.successMessage= 'Kasutaja '+this.username+' lisamine õnnestus'
+      setTimeout(this.resetErrorMessage, 3000)
+      setTimeout(()=>router.push({name: 'loginRoute'}),3000)
     },
     handleUnsuccessfulAdd(error) {
       this.errorResponse = error.response.data
@@ -93,10 +100,12 @@ export default {
       setTimeout(this.resetErrorMessage, 5000)
     },
     resetErrorMessage() {
+      this.successMessage = ''
       this.errorMessage = ''
     }
   }
 }
 
 </script>
+
 
