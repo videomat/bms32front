@@ -45,6 +45,7 @@ nav {
     margin-right: 280px; /* Adjust this value as needed */
     margin-top: -36px; /* Increases top margin - adjust as needed */
 }
+
 .nav-links {
     display: flex;
     justify-content: center;
@@ -89,9 +90,8 @@ nav {
 .search {
     width: 230px; /* Or use percentages for responsive design */
     height: 20px;
-    margin: 25px;
     font-size: 16px;
-    margin-left: 14px; /* Adjust the value as needed */
+    margin: 25px 25px 25px 14px;
 }
 
 .button:hover {
@@ -158,6 +158,19 @@ select:focus {
     border: 2px solid #cccccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+
+}
+
+.background-box2 {
+    background-color: rgba(240, 240, 240, 0.69); /* Light grey background */
+    width: 285px; /* Adjust as needed */
+    height: 500px; /* Adjust as needed */
+    padding: 10px;
+    border: 2px solid #cccccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-left: 100px;
+    margin-top: 50px;
 }
 
 .flexswitch {
@@ -190,3 +203,50 @@ body {
         background-position: 100% 50%;
     }
 }
+
+.table-container {
+    display: flex;
+    justify-content: center; /* Horizontally center the table */
+    align-items: center; /* Vertically center the table, adjust as needed */
+    height: 100vh; /* Optional: Adjust or remove based on your layout */
+    background-color: #f2f2f2; /* Light gray background */
+}
+
+.table {
+    width: 70%; /* Full width */
+    border-collapse: collapse; /* Removes space between borders */
+    font-size: 0.9em; /* Adjust font size */
+    font-family: sans-serif; /* Font family */
+    min-width: 400px; /* Minimum width */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+    margin: auto;
+}
+
+.table thead tr {
+    background-color: #009879; /* Header background color */
+    color: #ffffff; /* Header font color */
+    text-align: left; /* Align text to the left */
+    font-weight: bold; /* Bold font for header */
+}
+
+.table th,
+.table td {
+    padding: 12px 15px; /* Padding inside table cells */
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dddddd; /* Border for each row */
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3; /* Background for even rows */
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879; /* Special border for the last row */
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1; /* Hover effect for rows */
+}
+

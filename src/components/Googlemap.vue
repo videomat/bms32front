@@ -90,7 +90,7 @@ export default {
 
 
     navigateToBridgeDetailsView(bridgeId) {
-      router.push({path:'/details/' + bridgeId})
+      router.push({path:'/bridge/' + bridgeId})
     }
   },
   mounted() {
