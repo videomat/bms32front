@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="btn-group">
+    <div class="dropdown btn-group">
       <select v-model="selectedBridgeTypeId" >
         <option value="0">Kõik sillatüübid</option>
         <option v-for="bridgeType in bridgeTypes" :key="bridgeType.bridgeTypeId" :value="bridgeType.bridgeTypeId">

@@ -5,6 +5,7 @@
     height: 90vh; /* Example height - 100% of the viewport height */
     width: 100%; /* Example width - 100% of the container */
 }
+
 .new-user-background-image {
     background-image: url('~@/assets/newUserBridgePic.png');
     background-size: contain; /* Cover the entire area */
@@ -12,9 +13,180 @@
     background-position: center;
     height: 80vh; /* Example height - 100% of the viewport height */
 }
+
+nav {
+    padding: 20px;
+    animation: slideDown 0.5s ease-out;
+
+}
+
+.nav-links a,
+.nav-logout a {
+    color: black;
+    background-color: white;
+    border: 1px solid #cccccc;
+    border-radius: 3px; /* Rounded corners */
+    padding: 4px 15px; /* Adjust padding to change the size of the links */
+    text-decoration: none; /* Removes the underline from links */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.nav-links a:hover,
+.nav-logout a:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #cccccc;
+    border-radius: 3px; /* Rounded corners */
+}
+
+.nav-logout {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 280px; /* Adjust this value as needed */
+    margin-top: -36px; /* Increases top margin - adjust as needed */
+}
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-links {
+        font-size: 14px;
+    }
+}
+
+
 .row-position {
     padding-top: 600px;
 }
+
 .new-user-row-position {
-    padding-top: 55vh ;
+    padding-top: 55vh;
+}
+
+.button {
+    width: 234px; /* Or use percentages for responsive design */
+    height: 37px;
+    font-size: 16px;
+    margin-left: 10px; /* Adjust the value as needed */
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #cccccc;
+    border-radius: 3px; /* Rounded corners */
+}
+
+.search {
+    width: 230px; /* Or use percentages for responsive design */
+    height: 20px;
+    margin: 25px;
+    font-size: 16px;
+    margin-left: 14px; /* Adjust the value as needed */
+}
+
+.button:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dropdown {
+    margin: 2px;
+    padding: 5px;
+    background-color: rgba(136, 136, 136, 0.05); /* Light gray background */
+    border: 1px solid #cccccc;
+    border-radius: 3px; /* Rounded corners */
+}
+
+select {
+    width: 218px; /* Adjust as needed */
+    height: 34px; /* Adjust as needed */
+    padding: 6px 25px; /* Padding for better look */
+    border: 1px solid #ced4da; /* Border color */
+    border-radius: 3px; /* Rounded corners for the select box */
+    background-color: white; /* White background for the select box */
+    font-size: 16px; /* Font size */
+    color: #495057; /* Text color */
+    -webkit-appearance: none; /* Removes default styling for select in WebKit browsers */
+    -moz-appearance: none; /* Removes default styling for select in Firefox */
+    appearance: none; /* Removes default styling for select */
+}
+
+select:focus {
+    outline: none; /* Removes the outline on focus */
+    border-color: #80bdff; /* Changes border color when the select box is focused */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Adds a blue glow around the select box when it's focused */
+}
+
+.dropdown::after {
+    content: '\25BC'; /* Downward arrow */
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Ensures the arrow doesn't interfere with the select functionality */
+    color: #495057; /* Arrow color */
+}
+
+.background-box {
+    background-color: rgba(240, 240, 240, 0.69); /* Light grey background */
+    width: 285px; /* Adjust as needed */
+    height: 700px; /* Adjust as needed */
+    padding: 10px;
+    border: 2px solid #cccccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.flexswitch {
+    padding: 10px;
+    position: absolute;
+    left: 360px;
+}
+
+.colsize {
+    width: 128px; /* Adjust as needed */
+}
+
+body {
+    background: linear-gradient(-45deg, rgb(94, 165, 194), rgb(71, 195, 209), rgb(152, 175, 186), rgb(183, 143, 182));
+    background-size: 200% 200%;
+    animation: gradient 120s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    50% {
+        background-position: 50% 0%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
 }

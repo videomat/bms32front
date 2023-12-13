@@ -1,12 +1,12 @@
 <template>
-  <span>Silla laius [m]:</span>
-  <div class="col-5">
+  <span><h6>Silla laius [m]:</h6></span>
+  <div class="colsize">
     <input v-model="bridgeWidthStart" aria-describedby="basic-addon1" class="form-control"
            min="0"
            placeholder="Alates"
            type="number">
   </div>
-  <div class="col-5">
+  <div class="colsize">
     <input v-model="bridgeWidthEnd" aria-describedby="basic-addon1" class="form-control"
            placeholder="Kuni"
            type="number">
@@ -17,7 +17,7 @@
 export default {
   name: 'BridgeWidthSearch',
   data() {
-    return{
+    return {
       bridgeWidthStart: 0,
       bridgeWidthEnd: 0,
     }

@@ -4,12 +4,9 @@
     <template v-if="isLoggedIn">
       <div class="nav-links">
         <router-link to="/home">Kodu</router-link>
-        |
         <router-link to="/allbridges">Kõik sillad</router-link>
-        |
         <template v-if="isAdmin">
           <router-link to="/changebridges">Muuda sillad</router-link>
-          |
         </template>
       </div>
       <div class="nav-logout">
@@ -73,30 +70,5 @@ export default {
 
 <style>
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px;
-}
 
-.nav-links {
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-}
-
-.nav-logout {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 30px; /* Adjust this value as needed */
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 </style>

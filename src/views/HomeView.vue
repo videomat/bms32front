@@ -1,54 +1,58 @@
 <template>
-  <div class="container text-center">
-    <div class="row">
-      <div class="col mb-1">
-        <div>
-          <BridgeNameSearch ref="bridgeNameSearchRef"/>
-        </div>
-        <div class="navbar bg-body-tertiary">
+  <div class="d-flex flex-column justify-content-center w-100 h-100">
+    <div class="container text-start">
+      <div class="row">
+        <div class="background-box col-3 mb-1">
           <div>
-            <BridgeNumberSearch ref="bridgeNumberSearchRef"/>
+            <BridgeNameSearch ref="bridgeNameSearchRef"/>
+            <div>
+              <BridgeNumberSearch ref="bridgeNumberSearchRef"/>
+            </div>
           </div>
-        </div>
-        <div class="container text-start">
-          <div class="col mb-3">
-            <h3>Filter</h3>
-            <div class="row mb-1">
-              <BridgeTypeDropdown ref="bridgeTypeDropdownRef"/>
-            </div>
-            <div class="row mb-1">
-              <CountyDropdown ref="countyDropdownRef"/>
-            </div>
-            <div class="row mb-1">
-              <BridgeMaterialDropdown ref="bridgeMaterialDropdownRef"/>
-            </div>
-            <div class="row mb-1">
-              <BridgeLengthSearch ref="bridgeLengthSearchRef"/>
-            </div>
-            <div class="row mb-1">
-              <BridgeWidthSearch ref="bridgeWidthSearchRef"/>
-            </div>
-            <div class="row mb-3">
-              <ConditionIndexSearch ref="conditionIndexSearchRef"/>
-            </div>
-            <div class="row mb-3">
-              <button @click="sendBridgeSearchRequest" class="btn btn-outline-secondary" type="button">Otsi</button>
-            </div>
-            <div class="row mb-3">
-              <button @click="handleResetFilter" class="btn btn-outline-secondary" type="button">Reset filter</button>
-            </div>
-            <div class="row mb-3">
-              <div class="form-check form-switch">
-                <input v-model="searchPerformed" id="flexSwitchCheckChecked" checked class="form-check-input" role="switch" type="checkbox"
-                >
-                <label class="form-check-label" for="flexSwitchCheckChecked">Filter OFF/ON</label>
+          <div class="fade-in container text-start">
+            <div class="col mb-2">
+              <h4>Filter</h4>
+              <div class=" row mb-1">
+                <BridgeTypeDropdown ref="bridgeTypeDropdownRef"/>
+              </div>
+              <div class="row mb-1">
+                <CountyDropdown ref="countyDropdownRef"/>
+              </div>
+              <div class="row mb-1">
+                <BridgeMaterialDropdown ref="bridgeMaterialDropdownRef"/>
+              </div>
+              <div class="row mb-1">
+                <BridgeLengthSearch ref="bridgeLengthSearchRef"/>
+              </div>
+              <div class="row mb-1">
+                <BridgeWidthSearch ref="bridgeWidthSearchRef"/>
+              </div>
+              <div class="row mb-3">
+                <ConditionIndexSearch ref="conditionIndexSearchRef"/>
+              </div>
+              <div class="row mb-3">
+                <button class="button btn-outline-secondary" type="button" @click="sendBridgeSearchRequest">Otsi
+                </button>
+              </div>
+              <div class="row mb-3">
+                <button class="button btn-filter btn-outline-secondary" type="button" @click="handleResetFilter">Reset
+                  filter
+                </button>
+              </div>
+              <div class="flexswitch row mb-3">
+                <div class="form-check form-switch">
+                  <input id="flexSwitchCheckChecked" v-model="searchPerformed" checked class="form-check-input"
+                         role="switch" type="checkbox"
+                  >
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Filter OFF/ON</label>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-9">
-        <Googlemap :bridge-search-request="bridgeSearchRequest" ref="googlemapRef"/>
+        <div class="col-9">
+          <Googlemap ref="googlemapRef" :bridge-search-request="bridgeSearchRequest"/>
+        </div>
       </div>
     </div>
   </div>
@@ -131,8 +135,7 @@ export default {
     },
 
 
-
-    handleResetFilter () {
+    handleResetFilter() {
       this.resetAllFields();
       this.$refs.googlemapRef.getAllBridges()
     },
