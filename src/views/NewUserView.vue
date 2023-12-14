@@ -13,10 +13,10 @@
         </div>
       </div>
       <div>
-        <button class="btn btn-outline-primary new-user-button mb-2" type="submit" @click="addUser" >Lisa kasutaja </button>
+        <button class="btn btn-outline-dark new-user-button mb-2" type="submit" @click="addUser" >Lisa kasutaja </button>
       </div>
       <div>
-        <button class="btn btn-outline-primary new-user-button" type="submit" @click="goLogin">Tagasi</button>
+        <button class="btn btn-outline-dark new-user-button" type="submit" @click="goLogin">Tagasi</button>
       </div>
     </div>
   </div>
