@@ -6,12 +6,10 @@
         <div class="col mb-2">
           <input v-model="username" class="form-control" placeholder="Kasutaja" type="text">
         </div>
-
         <div class="col mb-2">
           <input v-model="password" class="form-control" placeholder="Parool" type="password">
         </div>
         <button class="btn btn-outline-primary" type="submit" @click="login">Logi sisse</button>
-
       </div>
     </div>
   </div>
@@ -24,7 +22,7 @@ import router from "@/router";
 import ErrorAlert from "@/components/alert/ErrorAlert.vue";
 
 export default {
-  name: "Loginview",
+  name: "LoginView",
   components: {ErrorAlert},
   data() {
     return {
@@ -50,9 +48,7 @@ export default {
         this.handleRequiredFieldsAlert();
       }
     },
-    adduser() {
-      router.push({name: 'newUserRoute'})
-    },
+
     allRequiredFieldsAreFilled() {
       return this.username.length > 0 && this.password.length > 0
     },
