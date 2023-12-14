@@ -1,4 +1,5 @@
 <template>
+  <div class="d-flex flex-column justify-content-center w-100 h-100">
   <div class="text-center text-primary"><h4>LOO UUS KONTO!</h4></div>
   <div class="container text-center new-user-background-image" @keydown.enter="addUser">
     <div class="row justify-content-center new-user-row-position">
@@ -20,7 +21,7 @@
       </div>
     </div>
   </div>
-
+  </div>
 
 </template>
 
@@ -79,8 +80,6 @@ export default {
       })
     },
     handleSuccessfulAdd() {
-      //sessionStorage.setItem('userId', this.loginResponse.userId)
-      //sessionStorage.setItem('roleName', this.loginResponse.roleName)
       this.successMessage= 'Kasutaja '+this.username+' lisamine õnnestus'
       setTimeout(this.resetErrorMessage, 3000)
       setTimeout(()=>router.push({name: 'loginRoute'}),3000)
@@ -107,5 +106,4 @@ export default {
 }
 
 </script>
-
 
