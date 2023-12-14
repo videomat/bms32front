@@ -45,8 +45,7 @@ import router from "@/router";
 
 export default {
   name: 'Googlemap',
-  props:{
-    bridgeSearchRequest:{}
+  props:{bridgeSearchRequest:{}
   },
   data() {
     return {

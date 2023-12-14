@@ -2,7 +2,7 @@
   <div>
     <div class="dropdown btn-group">
       <select v-model="selectedCountyId">
-        <option value="0">Kõik maakonnad</option>
+        <option value="0">Maakonnad</option>
         <option v-for="county in counties" :key="county.countyId" :value="county.countyId">
           {{ county.countyName }}
         </option>

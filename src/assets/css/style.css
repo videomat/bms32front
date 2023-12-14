@@ -164,13 +164,11 @@ select:focus {
 .background-box2 {
     background-color: rgba(240, 240, 240, 0.69); /* Light grey background */
     width: 285px; /* Adjust as needed */
-    height: 500px; /* Adjust as needed */
+    height: 430px; /* Adjust as needed */
     padding: 10px;
     border: 2px solid #cccccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-left: 100px;
-    margin-top: 50px;
 }
 
 .flexswitch {
@@ -249,4 +247,3 @@ body {
 .table tbody tr:hover {
     background-color: #f1f1f1; /* Hover effect for rows */
 }
-

@@ -97,20 +97,16 @@ export default {
         bridgeWidthEnd: 0,
         conditionIndexStart: 0,
         conditionIndexEnd: 0
-      },
-
+      }
     }
   },
 
   methods: {
-
-
     sendBridgeSearchRequest() {
       this.getAndSetBridgeSearchRequestValues()
       this.$refs.googlemapRef.getFilteredBridges()
 
     },
-
 
     getAndSetBridgeSearchRequestValues: function () {
       this.bridgeSearchRequest.bridgeName = this.$refs.bridgeNameSearchRef.bridgeName

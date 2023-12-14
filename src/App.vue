@@ -6,7 +6,7 @@
         <router-link to="/home">Kodu</router-link>
         <router-link to="/allbridges">Kõik sillad</router-link>
         <template v-if="isAdmin">
-          <router-link to="/changebridges">Muuda sillad</router-link>
+          <router-link to="/modify/bridge">Lisa sild</router-link>
         </template>
       </div>
       <div class="nav-logout">

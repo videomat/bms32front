@@ -3,7 +3,7 @@
   <div>
     <div class="dropdown btn-group">
       <select v-model="selectedBridgeMaterialId">
-        <option value="0">Kõik materjalid</option>
+        <option value="0">Materjal</option>
         <option v-for="bridgeMaterial in bridgeMaterials" :value="bridgeMaterial.materialId">{{bridgeMaterial.materialName}}</option>
       </select>
     </div>

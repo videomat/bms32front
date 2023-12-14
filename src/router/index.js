@@ -5,6 +5,7 @@ import NewUserView from "@/views/NewUserView.vue"
 import HomeView from '../views/HomeView.vue'
 import ErrorView from "@/views/ErrorView.vue"
 import BridgeDetailsView from "@/views/BridgeDetailsView.vue";
+import BridgeModifyView from "@/views/BridgeModifyView.vue";
 
 const routes =
     [
@@ -37,7 +38,12 @@ const routes =
             path: '/bridge/:id',
             name: 'bridgeDetailsRoute',
             component: BridgeDetailsView
-        }
+        },
+        {
+            path: '/modify/bridge',
+            name: 'bridgeModifyRoute',
+            component: BridgeModifyView
+        },
     ]
 
 const router = createRouter({
