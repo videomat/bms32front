@@ -22,7 +22,6 @@
     <router-link v-if="!isLoggedIn" to="/"></router-link>
   </nav>
   <router-view @event-update-nav-menu="updateNavMenu"/>
-
 </template>
 
 <script>
@@ -74,10 +73,4 @@ export default {
     this.updateNavMenu();
   }
 }
-
 </script>
-
-<style>
-
-
-</style>

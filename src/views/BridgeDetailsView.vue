@@ -12,9 +12,10 @@
           <p>Latitude: {{ bridgeDetail.locationLatitude }}</p>
           <p>Longitude: {{ bridgeDetail.locationLongitude }}</p>
           <p>Seisundiindeks: {{ bridgeDetail.conditionIndex }}</p>
+          <button v-if="isAdmin" @click="deleteBridge">Kustuta</button>
         </div>
         <div class="col-8">
-          <img :src="bridgeDetail.imageData">
+          <img :src="bridgeDetail.imageData" alt="">
         </div>
       </div>
     </div>
@@ -41,10 +42,12 @@ export default {
         locationLatitude: 0,
         locationLongitude: 0,
         materialName: "string",
-        imageData: "string"
+        imageData: "string",
+        isAdmin: false
       }
     }
   },
+
   methods: {
     fetchBridgeDetails() {
       const bridgeId = this.$route.params.id;
@@ -52,9 +55,33 @@ export default {
         this.bridgeDetail = response.data;
       });
     },
+    deleteBridge() {
+      if (confirm("Kas oled kindel, et soovid silla info kustutada?")) {
+        const bridgeId = this.bridgeDetail.bridgeId;
+        if (!bridgeId) {
+          alert("Silla ID on puudu");
+          return;
+        }
+
+        this.$http.delete(`/bridge?bridgeId=${bridgeId}`)
+            .then(response => {
+              alert("Silla info kustutamine õnnestus");
+              this.$router.push('/home');
+            })
+            .catch(error => {
+              console.error("Error Silla kustutamisel:", error);
+              alert("Silla kustutamine ebaõnnestus");
+            });
+      }
+    },
+    checkAdminStatus() {
+      const roleName = sessionStorage.getItem('roleName');
+      this.isAdmin = roleName === 'admin';
+    }
   },
   mounted() {
     this.fetchBridgeDetails();
+    this.checkAdminStatus();
   }
 }
 </script>

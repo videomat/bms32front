@@ -33,12 +33,12 @@
             <div class="row mb-3">
               <ConditionIndex ref="conditionIndexRef"/>
             </div>
+            <div class="row mb-3">
             <ImageInput @event-emit-base64="setImageData"/>
+          </div>
           </div>
           <button class="button btn-outline-secondary" type="button" @click="addNewBridge">Lisa
           </button>
-          <div class="col">
-          </div>
         </div>
         <div class="col-3">
           <img :src="bridgeAddRequest.imageData">
