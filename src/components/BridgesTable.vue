@@ -18,9 +18,9 @@
       <tr v-for="(bridge, index) in allBridges" :key="index"> <!--      pole kindel milleks key index peab olema-->
         <th scope="row">{{index + 1}}</th>
         <td>{{bridge.bridgeNumber}}</td>
-        <td>{{bridge.bridgeName}}</td>
-        <td>{{bridge.bridgeLength}}</td>
-        <td>{{bridge.bridgeWidth}}</td>
+        <td>{{bridge.bridgeName}} </td>
+        <td>{{bridge.bridgeLength}}m</td>
+        <td>{{bridge.bridgeWidth}}m</td>
         <td>{{bridge.conditionIndex}}</td>
         <td>{{bridge.bridgeMaterial}}</td>
         <td>{{bridge.bridgeType}}</td>

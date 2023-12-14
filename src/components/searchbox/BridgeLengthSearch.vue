@@ -1,12 +1,12 @@
 <template>
-<span>Silla pikkus [m]:</span>
-    <div class="col-5">
+<span><h6>Silla pikkus [m]:</h6></span>
+    <div class="colsize">
       <input v-model="bridgeLengthStart" aria-describedby="basic-addon1" aria-label="BridgeName" class="form-control"
              min="0"
              placeholder="Alates"
              type="number">
     </div>
-    <div class="col-5">
+    <div class="colsize">
       <input v-model="bridgeLengthEnd" aria-describedby="basic-addon1" aria-label="BridgeName" class="form-control"
              placeholder="Kuni"
              type="number">

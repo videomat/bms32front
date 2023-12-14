@@ -4,17 +4,8 @@
       :center="center"
       :zoom="7.7"
       map-type-id="terrain"
-      style="width: 50vw; height: 700px"
+      style="width: 55vw; height: 700px"
   >
-    <!--    <GMapMarker-->
-    <!--        v-for="(m, index) in markers"-->
-    <!--        :key="index"-->
-    <!--        :clickable="true"-->
-    <!--        :name="String"-->
-    <!--        :position="m.position"-->
-    <!--        @click="center=m.position,openMarker(m.id)"-->
-    <!--        @closeclick="openMarker(null)"-->
-    <!--    >-->
     <GMapMarker
         v-for="(bridge, index) in bridges"
         :key="index"
@@ -71,8 +62,6 @@ export default {
           }
         }
       ]
-
-
     }
   },
 
@@ -101,10 +90,8 @@ export default {
 
 
     navigateToBridgeDetailsView(bridgeId) {
-      router.push({name: 'bridgeDetailsRoute', query: {bridgeId:bridgeId}})
+      router.push({path:'/bridge/' + bridgeId})
     }
-
-
   },
   mounted() {
     this.getAllBridges();

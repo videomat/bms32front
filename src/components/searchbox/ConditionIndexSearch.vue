@@ -1,12 +1,12 @@
 <template>
-  <span>Seisundiindeks [0-100]:</span>
-  <div class="col-5">
+  <span><h6>Seisundiindeks [0-100]</h6></span>
+  <div class="colsize">
     <input v-model="conditionIndexStart" aria-describedby="basic-addon1" aria-label="BridgeName" class="form-control"
            min="0"
            placeholder="Alates"
            type="number">
   </div>
-  <div class="col-5">
+  <div class="colsize">
     <input v-model="conditionIndexEnd" aria-describedby="basic-addon1" aria-label="BridgeName" class="form-control"
            placeholder="Kuni"
            type="number">

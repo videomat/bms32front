@@ -1,31 +1,20 @@
 <template>
-  <div>
-    Test123
+  <div class="bridgedetails">
+      <div class="col-3">
+        <BridgeDetails/>
+      </div>
+
+
+
 
   </div>
-
 </template>
 
-
 <script>
-
-import {useRoute} from "vue-router";
-
+import BridgeDetails from "@/components/BridgeDetails.vue";
 export default {
-  name: 'BridgesDetailsView',
-  data() {
-    return {
-      bridgeId: Number(useRoute().query.bridgeId)
-    }
-  },
-  methods:{
-    alertBridgeId() {
-      alert(this.bridgeId)
-    },
-  },
-  mounted() {
-    this.alertBridgeId()
-  }
+  name: 'BridgeDetailsView',
+  components: {BridgeDetails}
 
 }
 </script>

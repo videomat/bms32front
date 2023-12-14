@@ -1,13 +1,11 @@
 <template>
   <div>
-    <div>
-      <select v-model="selectedCountyId" >
+    <div class="dropdown btn-group">
+      <select v-model="selectedCountyId">
         <option value="0">Kõik maakonnad</option>
-        <option v-for="county in counties" :key="county.countyId" :value="county.countyId">{{
-            county.countyName
-          }}
+        <option v-for="county in counties" :key="county.countyId" :value="county.countyId">
+          {{ county.countyName }}
         </option>
-
       </select>
     </div>
   </div>
