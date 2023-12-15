@@ -3,7 +3,7 @@
       <div class="search input-group">
         <span id="basic-addon1"></span>
         <input v-model="bridgelat" aria-describedby="basic-addon1" aria-label="BridgeLat" class="form-control"
-               placeholder="longitude, latitude"
+               placeholder="Latitude, Longitude"
                type="text">
       </div>
   </div>
