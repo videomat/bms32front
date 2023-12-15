@@ -251,3 +251,7 @@ body {
 .table tbody tr:hover {
     background-color: #f1f1f1; /* Hover effect for rows */
 }
+img {
+    max-width: 1000px; /* Make sure the image doesn't exceed its natural size */
+    height: auto; /* Maintain the aspect ratio */
+}
