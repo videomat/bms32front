@@ -108,7 +108,7 @@ export default {
           })
           .catch(error => {
             console.error("Error Silla uuendamisel:", error);
-            alert("Silla uuendamine ebaõnnestus");
+            window.location.href = "/error";
           });
     }
   },
