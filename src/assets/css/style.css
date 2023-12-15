@@ -186,7 +186,7 @@ select:focus {
 }
 
 body {
-    background: linear-gradient(-45deg, rgb(94, 165, 194), rgb(71, 195, 209), rgb(152, 175, 186), rgb(183, 143, 182));
+    background: linear-gradient(-45deg, rgba(94, 165, 194, 0.64), rgba(71, 195, 209, 0.59), rgba(152, 175, 186, 0.62), rgba(183, 143, 182, 0.56));
     background-size: 200% 200%;
     animation: gradient 120s ease infinite;
     height: 100vh;

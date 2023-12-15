@@ -12,6 +12,7 @@
           <p>Latitude: {{ bridgeDetail.locationLatitude }}</p>
           <p>Longitude: {{ bridgeDetail.locationLongitude }}</p>
           <p>Seisundiindeks: {{ bridgeDetail.conditionIndex }}</p>
+          <button v-if="isAdmin" @click="updateBridgeDetails">Muuda</button>
           <button v-if="isAdmin" @click="deleteBridge">Kustuta</button>
         </div>
         <div class="col-8">
@@ -74,9 +75,41 @@ export default {
             });
       }
     },
+
     checkAdminStatus() {
       const roleName = sessionStorage.getItem('roleName');
       this.isAdmin = roleName === 'admin';
+    },
+    updateBridgeDetails() {
+      const bridgeId = this.bridgeDetail.bridgeId;
+      if (!bridgeId) {
+        alert("Silla ID on puudu");
+        return;
+      }
+
+      this.$http.put(`/bridge/${bridgeId}`, {
+        bridgeNumber: this.bridgeDetail.bridgeNumber,
+        bridgeName: this.bridgeDetail.bridgeName,
+        length: this.bridgeDetail.length,
+        width: this.bridgeDetail.width,
+        bridgeTypeId: this.bridgeDetail.bridgeTypeId,
+        conditionIndex: this.bridgeDetail.conditionIndex,
+        locationCountyId: this.bridgeDetail.locationCountyId,
+        locationLatitude: this.bridgeDetail.locationLatitude,
+        locationLongitude: this.bridgeDetail.locationLongitude,
+        materialId: this.bridgeDetail.materialId,
+        imageData: this.bridgeDetail.imageData,
+        specialImageData: this.bridgeDetail.specialImageData,
+        interestingFactData: this.bridgeDetail.interestingFactData
+      })
+          .then(response => {
+            alert("Silla info uuendamine õnnestus");
+            // You might want to do something here, like redirecting the user
+          })
+          .catch(error => {
+            console.error("Error Silla uuendamisel:", error);
+            alert("Silla uuendamine ebaõnnestus");
+          });
     }
   },
   mounted() {
