@@ -12,7 +12,7 @@ const app = createApp(App)
 app
     .use(VueGoogleMaps, {
         load: {
-            key: 'AIzaSyBj1UjwFQndochuBwFuk7PgPYZK4GiWtUk',
+            key: 'SydsfdsfBjjwFQsdfsdfsaddfadsffndochuBwFuk7dsfadsfgPdsafYZK4GiWtUk',
         },
     })
 
